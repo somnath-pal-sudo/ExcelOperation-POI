@@ -49,6 +49,33 @@ public class excelWriteOperation {
 				
 			}
 		}
+		
+		//using foreach loop//
+		
+		int rowCount=0;
+		for (Object emp[]:empdata)
+		{
+			XSSFRow row=sheet.createRow(rowCount++);
+			int coulumCount=0;
+			for(Object value:emp) {
+				XSSFCell cell=row.createCell(coulumCount++);
+				if(value instanceof Boolean)
+					cell.setCellValue((boolean) value);
+				if(value instanceof Integer)
+					cell.setCellValue((Integer) value);
+				if(value instanceof String)
+					cell.setCellValue((String) value);
+				
+				
+				
+				
+			}
+		}
+		
+		
+		
+		
+		
 		String filePath=".\\dataFolder\\emp.xlsx";
 		FileOutputStream fos= new FileOutputStream(filePath);
 		workbook.write(fos);

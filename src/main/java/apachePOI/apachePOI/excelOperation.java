@@ -43,7 +43,7 @@ public class excelOperation {
 		  }
 		  
 		  }
-		  
+		//using iterator showingdata in excel file  
 		 
 
 		Iterator it = sheet.iterator();
