@@ -2,6 +2,7 @@ package apachePOI.apachePOI;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -14,6 +15,41 @@ public class excelWriteOperation {
 		
 		XSSFWorkbook workbook= new XSSFWorkbook();
 		XSSFSheet sheet= workbook.createSheet("EmpInfo");
+		
+		
+		
+		ArrayList<Object[]> arraylist= new ArrayList<Object[]>();
+		arraylist.add(new Object []{"EmpID","EmpName","Job"});
+		arraylist.add(new Object []{101,"David","Job"});
+		arraylist.add(new Object []{102,"Smith","Scientist"});
+		arraylist.add(new Object []{103,"Peter","Analyst"});
+		
+		
+		
+		
+		//using for..each loop//
+		
+		
+		int rowNumber=0;
+		for(Object[]emap:arraylist) {
+			XSSFRow row=sheet.createRow(rowNumber++);
+			
+			int cellNumber=0;
+			for(Object value:arraylist ) {
+				XSSFCell cell=row.createCell(cellNumber++);
+				
+				if(value instanceof Boolean)
+					cell.setCellValue((boolean) value);
+				if(value instanceof Integer)
+					cell.setCellValue((Integer) value);
+				if(value instanceof String)
+					cell.setCellValue((String) value);
+				
+				
+			}
+			
+		}
+		
 		
 		Object empdata[][]= {
 				{"EmpID","EmpName", "Job"},
